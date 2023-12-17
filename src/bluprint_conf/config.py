@@ -50,11 +50,13 @@ def load_data_yaml(
     return add_prefix_to_nested_config(conf, prefix=data_path)
 
 
-def absolute_package_path(filename: str | Path) -> Path | Traversable:
+def absolute_package_path(filename: str | Path) -> Path:
     dir_name = str(Path(filename).parent)
     dir_as_module = dir_name.strip('/').replace('/', '.')
     file_basename = Path(filename).name
-    return resources.files(dir_as_module).joinpath(file_basename)
+    return (
+        resources.files(dir_as_module).joinpath(file_basename)  # type: ignore
+    )
 
 
 def load_config_yaml(

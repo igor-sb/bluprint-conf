@@ -61,8 +61,10 @@ per-file-ignores = [
 	# WPS202 Found too many module members
     'tests/**/conftest.py: WPS202',
 	# WPS412 Found `__init__.py` module with logic
+	# WPS347 Found vague import that may cause confusion: *
 	# F401 imported but unused
-	'**/__init__.py: WPS412, F401',
+	# F403 used; unable to detect undefined names
+	'**/__init__.py: WPS412, WPS347, F401, F403',
 ]
 exclude = [
 	'docs',
