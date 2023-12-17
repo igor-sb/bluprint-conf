@@ -28,6 +28,7 @@ dev = [
     "flake8-pyproject>=1.2.3",
     "wemake-python-styleguide>=0.18.0",
     "autopep8>=2.0.4",
+    "sphinx-rtd-theme>=2.0.0",
 ]
 
 [tool.isort]

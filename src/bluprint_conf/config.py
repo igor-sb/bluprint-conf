@@ -61,7 +61,8 @@ def absolute_package_path(filename: str | Path) -> Path:
 
 def load_config_yaml(
     config_file: str | Path = 'conf/config.yaml',
+    use_package_path: bool = True,
 ) -> DictConfig | ListConfig:
-    if not Path(config_file).is_absolute():
+    if not Path(config_file).is_absolute() and use_package_path:
         config_file = absolute_package_path(config_file)
     return OmegaConf.load(config_file)
