@@ -29,10 +29,10 @@ Bluprint_conf assumes you have a Python project setup in this type of
 	├── conf
 	│   └── config.yaml
 	├── notebooks
-	│   └── notebook.ipynb
-	├── src
-	│   └── my_project
-	│   	└── code.py
+	│   └── section
+	│       └── notebook.ipynb
+	├── my_project
+	│   └── code.py
 	└── pyproject.toml
 
 where ``config.yaml`` configuration lives in another folder, separate from any
@@ -40,8 +40,8 @@ Python code or notebooks.
 
 Previously, loading ``config.yaml`` would require annoyances such as:
 
-- ``../../conf/config.yaml`` from ``code.py``
-- ``../conf/config.yaml`` from ``notebook.ipynb``
+- ``../conf/config.yaml`` from ``code.py``
+- ``..../conf/config.yaml`` from ``notebook.ipynb``
 - ``/absolute/path/to/my_project/conf/config.yaml``
 
 which are hard to maintain, need to be updated if we decide to reorganize the 
