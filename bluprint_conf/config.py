@@ -1,10 +1,10 @@
 """Code for manipulating YAML configuration files."""
 
-from importlib import resources
 from pathlib import Path, PurePath
 from typing import Any
 from urllib.parse import urlparse
 
+from importlib_resources import files
 from omegaconf import DictConfig, ListConfig, OmegaConf
 
 
@@ -46,7 +46,7 @@ def load_data_yaml(
     data_dir: str = 'data',
 ) -> DictConfig | ListConfig:
     conf = load_config_yaml(config_file)
-    data_path = str(resources.files(data_dir).joinpath(''))
+    data_path = str(files(data_dir))
     return add_prefix_to_nested_config(conf, prefix=data_path)
 
 
@@ -54,9 +54,7 @@ def absolute_package_path(filename: str | Path) -> Path:
     dir_name = str(Path(filename).parent)
     dir_as_module = dir_name.strip('/').replace('/', '.')
     file_basename = Path(filename).name
-    return (
-        resources.files(dir_as_module).joinpath(file_basename)  # type: ignore
-    )
+    return Path(files(dir_as_module).joinpath(file_basename))
 
 
 def load_config_yaml(
