@@ -46,7 +46,7 @@ def load_data_yaml(
     data_dir: str = 'data',
 ) -> DictConfig | ListConfig:
     conf = load_config_yaml(config_file)
-    data_path = str(files(data_dir).joinpath(''))
+    data_path = str(files(data_dir))
     return add_prefix_to_nested_config(conf, prefix=data_path)
 
 
