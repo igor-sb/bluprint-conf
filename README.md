@@ -1,4 +1,4 @@
-![bluprint_conf logo](source/images/bluprintconf_logo.png)
+![bluprint_conf logo](docs/source/images/bluprintconf_logo.png)
 
 # Bluprint_conf
 
