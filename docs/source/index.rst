@@ -1,4 +1,4 @@
-.. image:: images/bluprint_wide.png
+.. image:: images/bluprintconf_logo.png
 
 Bluprint_conf
 =============
