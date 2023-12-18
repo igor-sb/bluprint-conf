@@ -12,7 +12,7 @@ Installation
 ------------
 
 Bluprint_conf is automatically added and installed by Bluprint, but if you wish
-to use it as a standalone package, it can be installed with ``pip``:
+to use it as a standalone package, it can be installed with:
 
 .. code-block:: bash
 
@@ -30,9 +30,10 @@ Bluprint_conf assumes you have a Python project setup in this type of
 	│   └── config.yaml
 	├── notebooks
 	│   └── notebook.ipynb
-	└── src
-	    └── my_project
-	    	└── code.py
+	├── src
+	│   └── my_project
+	│   	└── code.py
+	└── pyproject.toml
 
 where ``config.yaml`` configuration lives in another folder, separate from any
 Python code or notebooks. 
@@ -46,7 +47,7 @@ Previously, loading ``config.yaml`` would require annoyances such as:
 which are hard to maintain, need to be updated if we decide to reorganize the 
 code in different folders and becomes a mess if we try to share the project.
 
-With Bluprint_conf, you install your ``my_project`` locally as an "editable"
+With Bluprint_conf, you install your ``my_project`` locally as an editable
 package and access ``config.yaml`` as simple as this in Python scripts:
 
 
@@ -55,6 +56,10 @@ package and access ``config.yaml`` as simple as this in Python scripts:
 	from bluprint_conf import load_config_yaml
 	cfg = load_config_yaml()  # default loads: conf/config.yaml
 
+
+To install your project ``my_project`` as an editable package, Bluprint uses
+`PDM <https://pdm-project.org/latest/>`_, but if you want to use this standalone,
+run ``pip install -e .`` in your project folder.
 
 
 .. toctree::
