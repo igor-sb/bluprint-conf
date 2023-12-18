@@ -1,6 +1,6 @@
 PDM_RUN := pdm run
-FOLDERS= src
-PROJ= src
+FOLDERS= bluprint_conf
+PROJ= bluprint_conf
 NC=\033[0m # No Color
 
 .PHONY: install autolint lint lint-flake8 shell precommit poetry-precommit \
