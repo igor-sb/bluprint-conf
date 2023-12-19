@@ -2,7 +2,10 @@ Data configuration
 ------------------
 
 Bluprint_conf provides a simple way to read and write data from various sources
-in your project. For example if this is your project tree::
+in your project. For example, lets say you are working on an analysis in a
+notebook. For your analysis you need multiple files, some are stored locally
+inside your project folders, some are outside, and some may be accessible only
+remotely. Again, assuming your project follows a cookiecutter structure::
 
 	my_project
 	├── conf
@@ -15,9 +18,9 @@ in your project. For example if this is your project tree::
 	│   └── metadata.csv
 	...
 
-and say you need another file ``manifest.csv`` which is stored in an S3 bucket as
-well as ``global_config.csv`` stored somewhere outside of your project. Then the
-corresponding yaml file could be:
+and say you need another file *manifest.csv* from an S3 bucket as
+well as *global_config.csv* stored somewhere outside of your project. Then the
+corresponding ``data.yaml`` file used with Bluprint would look like this:
 
 .. code-block:: yaml
 
@@ -30,13 +33,14 @@ corresponding yaml file could be:
 	global_cfg: '/path/to/global_config.csv'
 	  
 
-By default, bluprint_conf ``load_data_yaml()`` parses this yaml such as:
+By default, bluprint_conf ``load_data_yaml()``:
 
-- relative paths are taken with respect to ``my_project/data`` (data directory can be changed usig ``data_dir`` argument)
+* resolves relative paths relative to ``my_project/data`` (data directory can
+  be changed usig ``data_dir`` argument)
 
-- absolute paths are unchanged
+* leaves absolute paths unchanged
 
-- URIs are unchanged (e.g. web links, S3 buckets, ...)
+* leaves URIs unchanged (e.g. web links, S3 buckets, ...)
 
 For example:
 
@@ -50,17 +54,17 @@ For example:
 
 	{
 	  'input': {
-	    'tab1': '/path/to/my_project/input/input_table1.csv'
+	    'tab1': '/path/to/my_project/data/input/input_table1.csv'
 	  },
 	  'output': {
-	    'tab1': '/path/to/my_project/output/output_table1.csv'
+	    'tab1': '/path/to/my_project/data/output/output_table1.csv'
 	  }, 
 	  'manifest': 's3://bucket/path/to/manifest.csv',
-	  'metadata': '/path/to/my_project/metadata.csv',
+	  'metadata': '/path/to/my_project/data/metadata.csv',
 	  'global_cfg': '/path/to/global_config.csv'
 	}
 
-The ``data`` OmegaConf dict can be used in place of file paths:
+The ``data`` OmegaConf dict is then used like this:
 
 .. code-block:: python
 
@@ -70,5 +74,9 @@ The ``data`` OmegaConf dict can be used in place of file paths:
 	# or using dot notation
 	df = pd.read_csv(data.input.tab1)
 
-See `OmegaConf usage <https://omegaconf.readthedocs.io/en/2.3_branch/usage.html#access-and-manipulation>`_
-for further information how to handle OmegaConf dicts.
+The main difference between ``load_config_yaml()`` and ``load_data_yaml()`` is
+that ``load_data_yaml()`` does this additional parsing of relative paths.
+
+.. note::
+	See `OmegaConf usage <https://omegaconf.readthedocs.io/en/2.3_branch/usage.html#access-and-manipulation>`_ 
+	for further information how to handle OmegaConf dicts.

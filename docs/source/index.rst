@@ -1,7 +1,7 @@
 .. image:: images/bluprintconf_logo.png
 
-Bluprint_conf
-=============
+General configuration
+=====================
 
 Bluprint_conf is a Python package that helps access configuration and data files
 in Python or R projects following cookiecutter directory structure. It is part
@@ -65,22 +65,23 @@ root directory:
 However, this requires that:
 
 * project exists in a 
-`flat layout <https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/>`_
-(.py files are not inside a `src` directory)
+  `flat layout <https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/>`_
+  (.py files are not inside a `src` directory)
 
 * project is installed as an
-`editable package <https://pip.pypa.io/en/latest/topics/local-project-installs/#editable-installs>`_,
-(done by running ``pip install -e .`` in the project root directory)
+  `editable package <https://pip.pypa.io/en/latest/topics/local-project-installs/#editable-installs>`_,
+  (done by running ``pip install -e .`` in the project root directory)
 
 Both of these are done automatically when you create or initialize a project
-using Bluprint.
+using Bluprint and this exposes all folders in your project root directory as
+modules.
 
 .. caution::
 
 	If you use a Python package with the same name as one of the directories in
 	your project root (e.g. ``data``), then you should rename that directory to
 	avoid name collision.
-	
+
 
 .. toctree::
    :maxdepth: 1
