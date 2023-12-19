@@ -25,11 +25,12 @@ Bluprint_conf assumes you have a Python project setup in this type of
 	my_project
 	├── conf
 	│   └── config.yaml
+	├── data
+	│   └── table.csv
 	├── notebooks
 	│   └── notebook.ipynb
-	├── src
-	│   └── my_project
-	│   	└── code.py
+	├── my_project
+	│   └── code.py
 	└── pyproject.toml
 ```
 

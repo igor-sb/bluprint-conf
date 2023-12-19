@@ -46,14 +46,14 @@ def load_data_yaml(
     data_dir: str = 'data',
 ) -> DictConfig | ListConfig:
     conf = load_config_yaml(config_file)
-    data_path = str(files(data_dir))
+    data_path = str(absolute_package_path(data_dir))
     return add_prefix_to_nested_config(conf, prefix=data_path)
 
 
-def absolute_package_path(filename: str | Path) -> Path:
-    dir_name = str(Path(filename).parent)
+def absolute_package_path(path_to_file: str | Path) -> Path:
+    dir_name = str(Path(path_to_file).parent)
     dir_as_module = dir_name.strip('/').replace('/', '.')
-    file_basename = Path(filename).name
+    file_basename = Path(path_to_file).name
     return Path(files(dir_as_module).joinpath(file_basename))
 
 
