@@ -13,6 +13,10 @@ requires-python = ">=3.11"
 readme = "README.md"
 license = {text = "MIT"}
 
+[project.optional-dependencies]
+prototyping = [
+    "ipykernel>=6.27.1",
+]
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"

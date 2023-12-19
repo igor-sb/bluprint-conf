@@ -71,12 +71,12 @@ importable modules in Python. This also means that if you use a Python package
 with the same name (e.g. ``data``), you should use a different name for the ``data``
 directory for bluprint_conf to work.
 
-.. automodule:: bluprint_conf.config
-	:members:
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
+   data-conf
+   reference
 
 
 Indices and tables
@@ -84,4 +84,3 @@ Indices and tables
 
 * :ref:`genindex`
 * :ref:`modindex`
-* :ref:`search`

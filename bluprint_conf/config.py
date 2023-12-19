@@ -17,8 +17,11 @@ def load_config_yaml(
     Parses relative paths and opens yaml configuration using OmegaConf.
 
     Args:
-        config_file (str | Path, optional): Relative or absolute path to the yaml configuration. Defaults to 'conf/config.yaml'.
-        use_package_path (bool, optional): If this is True, then relative paths are parsed with respect to the project root and not with respect to the path of the calling script. Defaults to True.
+        config_file (str | Path, optional): Relative or absolute path to the
+          yaml configuration. Defaults to 'conf/config.yaml'.
+        use_package_path (bool, optional): If this is True, then relative paths
+          are parsed with respect to the project root and not with respect to
+          the path of the calling script. Defaults to True.
 
     Returns:
         DictConfig | ListConfig: Return value of OmegaConf.create().
@@ -39,6 +42,8 @@ def load_data_yaml(
 
 def absolute_package_path(path_to_file: str | Path) -> Path:
     dir_name = str(Path(path_to_file).parent)
+    if dir_name == '.':
+        return Path(files(path_to_file).joinpath('_').parent)
     dir_as_module = dir_name.strip('/').replace('/', '.')
     file_basename = Path(path_to_file).name
     return Path(files(dir_as_module).joinpath(file_basename))
