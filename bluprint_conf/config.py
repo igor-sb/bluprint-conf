@@ -35,6 +35,19 @@ def load_data_yaml(
     config_file: str | Path = 'conf/data.yaml',
     data_dir: str = 'data',
 ) -> DictConfig | ListConfig:
+    """Load data configuration yaml
+
+    Load yaml configuration with file paths and parses file paths relative to
+      the project root directory.
+
+    Args:
+        config_file (str | Path, optional): Relative or absolute path to the
+          yaml configuration. Defaults to 'conf/data.yaml'.
+        data_dir (str, optional): Directory with local data. Defaults to 'data'.
+
+    Returns:
+        DictConfig | ListConfig: Return value of OmegaConf.create().
+    """
     conf = load_config_yaml(config_file)
     data_path = str(absolute_package_path(data_dir))
     return add_prefix_to_nested_config(conf, prefix=data_path)
