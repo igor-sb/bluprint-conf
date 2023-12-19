@@ -25,7 +25,7 @@ def load_config_yaml(
 
     Returns:
         DictConfig | ListConfig: Return value of OmegaConf.create().
-    """    
+    """
     if not Path(config_file).is_absolute() and use_package_path:
         config_file = absolute_package_path(config_file)
     return OmegaConf.load(config_file)
@@ -43,7 +43,8 @@ def load_data_yaml(
     Args:
         config_file (str | Path, optional): Relative or absolute path to the
           yaml configuration. Defaults to 'conf/data.yaml'.
-        data_dir (str, optional): Directory with local data. Defaults to 'data'.
+        data_dir (str, optional): Directory with local data. Defaults to
+          'data'.
 
     Returns:
         DictConfig | ListConfig: Return value of OmegaConf.create().

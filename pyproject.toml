@@ -43,15 +43,8 @@ line_length = 79
 
 [tool.flake8]
 ignore = [
-	'D101',  # D101 Missing docstring in public class
-	'D102',  # D102 Missing docstring in public method
-	'D103',  # D103 Missing docstring in public function
-	'D104',  # Missing docstring in public package
-	'D107',  # D107 Missing docstring in __init__
-	'D412',  # No blank lines allowed between a section header and its content
+	'D',  # Docstring linting
 	'I003',  # I003 isort expected 1 blank line in imports, found 0
-	'DAR101',  # DAR101 Missing parameter(s) in Docstring: - repeated_bases_regex
-	'DAR201',  # DAR201 Missing "Returns" in Docstring: - return
 	'S311',  # S311 Standard pseudo-random generators are not suitable for security/cryptographic purposes.
 	'S404',  # Consider possible security implications associated with the subprocess module.
 	'S603',  # subprocess call - check for execution of untrusted input.
@@ -83,7 +76,6 @@ exclude = [
 [[tool.mypy.overrides]]
 module = [
 	"pandas.*",
-	"fire.*",
 	"notebook.*",
 ]
 ignore_missing_imports = true

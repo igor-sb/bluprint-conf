@@ -1,3 +1,6 @@
+Reference
+=========
+
 .. automodule:: bluprint_conf.config
 	:members:
 
