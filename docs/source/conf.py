@@ -15,7 +15,8 @@ release = '0.1'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    "sphinx.ext.githubpages",
+    'sphinx.ext.githubpages',
+	'sphinx.ext.autodoc',
 ]
 
 templates_path = ['_templates']
