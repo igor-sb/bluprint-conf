@@ -33,12 +33,13 @@ Previously, loading ``config.yaml`` would require annoyances such as:
 	
 	yaml_file = '../conf/config.yaml'
 	with open(yaml_file, 'r') as file
-		cfg = yaml.safe_load(file)
+	    cfg = yaml.safe_load(file)
+
 
 which works from the ``code.py`` file but not ``notebook.ipynb`` - for which we
 need to use ``yaml_file = '../../conf/config.yaml'``. An alternative solution is
 to use a full path ``yaml_file = '/absolute/path/to/my_project/conf/config.yaml'``
-but that is not a portable solution.
+but that will not be portable.
 
 All of these solutions are hard to maintain or need to be constantly updated
 depending on where the calling script is in relation to `config.yaml`.
@@ -49,7 +50,7 @@ Solution
 
 With bluprint_conf, the files are always loaded in the same way, regardless of
 the location of our script or notebook, as long as they are within the project
-root folder:
+root directory:
 
 .. code-block:: python
 
@@ -57,8 +58,24 @@ root folder:
 	cfg = load_config_yaml()  # by default loads: conf/config.yaml
 
 
+How does bluprint_conf work?
+----------------------------
+
+Bluprint_conf assumes the project exists in a 
+`flat layout <https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/>`_
+(.py files are not inside a `src` directory) and that the project is installed as
+an `editable package <https://pip.pypa.io/en/latest/topics/local-project-installs/#editable-installs>`_.
+
+Editable packages with a flat layout expose the entire directory structure as
+importable modules in Python. This also means that if you use a Python package
+with the same name (e.g. ``data``), you should use a different name for the ``data``
+directory for bluprint_conf to work.
+
+.. automodule:: bluprint_conf.config
+	:members:
+
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Contents:
 
 
