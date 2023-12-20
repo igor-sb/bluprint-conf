@@ -1,4 +1,4 @@
-![](docs/source/images/bluprintconf_logo.png)
+![logo](docs/source/images/bluprintconf_logo.png)
 
 # Bluprint_conf
 
@@ -13,7 +13,7 @@ Bluprint_conf is automatically added and installed by Bluprint, but if you wish
 to use it as a standalone package, it can be installed with:
 
 ```sh
-	pip install bluprint_conf
+pip install bluprint_conf
 ```
 
 
@@ -21,6 +21,6 @@ Usage
 -----
 
 ```python
-	from bluprint_conf import load_config_yaml
-	cfg = load_config_yaml()  # by default loads: conf/config.yaml
+from bluprint_conf import load_config_yaml
+cfg = load_config_yaml()  # by default loads: conf/config.yaml
 ```	
