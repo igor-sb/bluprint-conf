@@ -1,22 +1,29 @@
 name: Docs
 on: [push, pull_request, workflow_dispatch]
+env:
+  PYTHON_VERSION: 3.11.2
 permissions:
     contents: write
+
 jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
+      
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{env.PYTHON_VERSION}}
+
       - name: Install dependencies
         run: |
-          pip install sphinx sphinx_rtd_theme sphinxcontrib-napoleon
+          pip install pdm
+          pdm install --group docs
       - name: Sphinx build
         run: |
-          sphinx-build docs/source docs/build
+          make docs
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
