@@ -69,7 +69,7 @@ per-file-ignores = [
 exclude = [
 	'docs',
 	'.venv',
-	'.git'
+	'.git',
 ]
 
 [tool.mypy]
