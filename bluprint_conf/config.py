@@ -6,6 +6,15 @@ from urllib.parse import urlparse
 
 from importlib_resources import files
 from omegaconf import DictConfig, ListConfig, OmegaConf
+from bluprint_conf.walk import find_yaml_files_in_dir
+
+def load_configs(
+    config_dir: str | Path,
+    *args,
+    **kwargs,
+) -> DictConfig | ListConfig:
+    yamls = find_yaml_files_in_dir(config_dir)
+    return OmegaConf.unsafe_merge()
 
 
 def load_config_yaml(
