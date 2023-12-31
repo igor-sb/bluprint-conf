@@ -14,7 +14,7 @@ def load_configs(
     **kwargs,
 ) -> DictConfig | ListConfig:
     yamls = find_yaml_files_in_dir(config_dir)
-    return OmegaConf.unsafe_merge()
+    return OmegaConf.unsafe_merge(yamls, )
 
 
 def load_config_yaml(
