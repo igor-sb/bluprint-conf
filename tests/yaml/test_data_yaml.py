@@ -1,9 +1,10 @@
-"""Test YAML manipulation."""
+"""Test data.yaml loading with file parsing."""
 
-from bluprint_conf import add_prefix_to_nested_config, load_config_yaml
+from bluprint_conf.config import load_config_yaml
+from bluprint_conf.data import add_prefix_to_nested_config
 
 
-def test_load_data_yaml():
+def test_add_prefix_to_nested_config():
     actual_test_config = load_config_yaml('tests/yaml/fixtures/test.yaml')
     actual_test_config = add_prefix_to_nested_config(
         actual_test_config,
