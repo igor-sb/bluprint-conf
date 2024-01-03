@@ -2,16 +2,17 @@
 
 # Bluprint_conf
 
-Bluprint_conf is a Python package for loading YAML configurations in your Python
-code or Jupyter notebooks, that automatically resolves YAML file paths, so
+Bluprint_conf is a Python package for loading yaml configurations in your Python
+code or Jupyter notebooks, that automatically resolves yaml file paths, so
 there is no need to think about absolute or relative paths.
 
 See [documentation](http://igor-sb.github.io/bluprint-conf) for usage.
 
 ## Installation
 
-Bluprint_conf is automatically added and installed by Bluprint, but if you wish
-to use it as a standalone package, it can be installed with:
+Bluprint_conf is automatically added and installed by
+`Bluprint <https://github.com/igor-sb/bluprint>`_, but if you wish to use it
+as a standalone package, it can be installed with:
 
 ```sh
 pip install bluprint_conf

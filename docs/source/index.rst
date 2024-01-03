@@ -89,10 +89,3 @@ modules.
 
    data-conf
    reference
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
