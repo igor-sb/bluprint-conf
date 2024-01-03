@@ -1,7 +1,6 @@
 """Test data.yaml loading with file parsing."""
 
 import os
-
 from pathlib import Path
 
 from bluprint_conf.config import load_config_yaml
@@ -26,7 +25,7 @@ def test_add_prefix_to_nested_config():
 
 def test_load_data_yaml():
     current_dir = Path(os.getcwd())
-    expected_data = {
+    expected_data_cfg = {
         'test_data': {
             'absolute': '/a/3a.bin',
             'relative_with_subdir': f'{current_dir}/tests/fixtures/3b/3b2.csv',
@@ -34,8 +33,31 @@ def test_load_data_yaml():
             's3_uri': 's3://example-bucket/path/to/object',
         },
     }
-    data = load_data_yaml(
+    actual_data_cfg = load_data_yaml(
         'tests/yaml/fixtures/data.yaml',
         data_dir='tests/fixtures',
     )
-    assert data == expected_data
+    assert actual_data_cfg == expected_data_cfg
+
+
+def test_load_data_yamls():
+    current_dir = Path(os.getcwd())
+    expected_data_cfg = {
+        'test_data': {
+            'absolute': '/a/1a.bin',
+            'relative_with_subdir': f'{current_dir}/tests/fixtures/1b/1b2.csv',
+            'relative_simple': f'{current_dir}/tests/fixtures/1c.jpeg',
+            's3_uri': 's3://example-bucket/path/to/object',
+        },
+        'test_data2': {
+            'absolute': '/a/2a.bin',
+            'relative_with_subdir': f'{current_dir}/tests/fixtures/2b/2b2',
+            'relative_simple': f'{current_dir}/tests/fixtures/2c.jpeg',
+            's3_uri': 's3://example-bucket/path/to/object',
+        },
+    }
+    actual_data_cfg = load_data_yamls(
+        'tests/yaml/fixtures/data_confs',
+        data_dir='tests/fixtures',
+    )
+    assert actual_data_cfg == expected_data_cfg
