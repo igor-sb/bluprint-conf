@@ -11,7 +11,7 @@ See [documentation](http://igor-sb.github.io/bluprint-conf) for usage.
 ## Installation
 
 Bluprint_conf is automatically added and installed by
-`Bluprint <https://github.com/igor-sb/bluprint>`_, but if you wish to use it
+[Bluprint](https://github.com/igor-sb/bluprint), but if you wish to use it
 as a standalone package, it can be installed with:
 
 ```sh
