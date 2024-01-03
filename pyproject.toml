@@ -32,13 +32,11 @@ dev = [
     "flake8-pyproject>=1.2.3",
     "wemake-python-styleguide>=0.18.0",
     "autopep8>=2.0.4",
-]
-docs = [
     "sphinx>=7.2.6",
-    "sphinx-rtd-theme>=2.0.0",
-    "sphinxcontrib-napoleon>=0.7",
+    "sphinx-copybutton>=0.5.2",
+    "sphinx-immaterial>=0.11.10",
+	"sphinxcontrib-napoleon>=0.7",
 ]
-
 
 [tool.isort]
 profile = "wemake"
@@ -47,6 +45,7 @@ line_length = 79
 [tool.flake8]
 ignore = [
 	'D',  # Docstring linting
+	'RST',  # Ignore ugly Restructured Text formatting from WPS
 	'I003',  # I003 isort expected 1 blank line in imports, found 0
 	'S311',  # S311 Standard pseudo-random generators are not suitable for security/cryptographic purposes.
 	'S404',  # Consider possible security implications associated with the subprocess module.
