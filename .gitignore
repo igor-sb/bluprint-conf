@@ -1,6 +1,8 @@
 # Test
 tmp/
 .vscode
+README_files
+
 
 # MacOS
 **/.DS_Store
