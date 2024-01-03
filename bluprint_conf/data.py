@@ -51,11 +51,12 @@ def load_data_yamls(
 
     Args:
         config_dir (str | Path): Directory with one or more yaml files.
-        data_dir (str | Path, optional): Directory with local data. Defaults to
-          'data'.
-        use_package_path (bool, optional): If this is True, then relative paths
-          are parsed with respect to the project root and not with respect to
-          the path of the calling script.
+
+        data_dir (str | Path, optional): Directory with local data.
+
+        use_package_path_for_config (bool, optional): If this is True, then
+          relative paths are parsed with respect to the project root and not
+          with respect to the path of the calling script.
 
     Returns:
         DictConfig | ListConfig: Return value of OmegaConf.create().
