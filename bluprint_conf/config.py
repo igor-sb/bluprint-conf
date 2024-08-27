@@ -67,7 +67,7 @@ def load_config_yamls(
           not with respect to the path of the calling script.
 
     Returns:
-    
+
         DictConfig | ListConfig: Return value of OmegaConf.create().
     """
     if not Path(config_dir).is_absolute() and use_package_path_for_config:

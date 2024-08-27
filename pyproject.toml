@@ -1,6 +1,6 @@
 [project]
 name = "bluprint-conf"
-version = "0.1.0"
+version = "0.2.0"
 description = "YAML configuration module for Bluprint"
 authors = [
     {name = "igor-sb", email = "84479009+igor-sb@users.noreply.github.com"},
@@ -17,12 +17,13 @@ license = {text = "MIT"}
 prototyping = [
     "ipykernel>=6.27.1",
 ]
-[build-system]
-requires = ["pdm-backend"]
-build-backend = "pdm.backend"
 
-[tool.pdm.dev-dependencies]
-dev = [
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
     "unify>=0.5",
     "isort>=5.13.2",
     "pre-commit>=3.6.0",
