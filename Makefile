@@ -3,7 +3,7 @@ FOLDERS= bluprint_conf
 PROJ= bluprint_conf
 NC=\033[0m # No Color
 
-.PHONY: install autolint lint lint-flake8 shell precommit poetry-precommit \
+.PHONY: install autolint lint lint-flake8 shell precommit uv-precommit \
 		install-dev test report-coverage docs lint-mypy
 
 test:
@@ -36,9 +36,9 @@ lint-mypy:
 		@echo "\n${BLUE}Running mypy...${NC}\n"
 		${UV_RUN} mypy --show-error-codes ${PROJ}
 
-precommit: poetry-precommit lint
+precommit: uv-precommit lint
 
-poetry-precommit:
+uv-precommit:
 		${UV_RUN} pre-commit run --all-files
 
 report-coverage:
